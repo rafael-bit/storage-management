@@ -16,6 +16,8 @@ import {
 import { Input } from "@/components/ui/input"
 import { useState } from "react";
 import Link from "next/link";
+import { createAccount } from "@/lib/actions/user.actions";
+import toast from "react-hot-toast";
 
 type FormType = "signIn" | "signUp";
 
@@ -32,6 +34,7 @@ const authSchema = (formType: FormType) => {
 export default function AuthForm({ type }: { type: FormType }) {
 	const [isLoading, setIsLoading] = useState(false)
 	const [errorMessage, setErrorMessage] = useState('')
+	const [accountId, setAccountId] = useState(null)
 
 	const formSchema = authSchema(type)
 	const form = useForm<z.infer<typeof formSchema>>({
@@ -43,7 +46,20 @@ export default function AuthForm({ type }: { type: FormType }) {
 	})
 
 	const onSubmit = async (values: z.infer<typeof formSchema>) => {
-		console.log(values)
+		setIsLoading(true)
+
+		try {
+			const user = await createAccount({
+				username: values.username || "",
+				email: values.email,
+			})
+
+			setAccountId(user.accountId)
+		} catch (err) {
+			toast.error((err as Error).message || "Something went wrong.");
+		} finally {
+			setIsLoading(false)
+		}
 	}
 	return (
 		<>
