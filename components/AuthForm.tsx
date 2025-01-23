@@ -18,6 +18,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { createAccount } from "@/lib/actions/user.actions";
 import toast from "react-hot-toast";
+import OTPModal from "./OTPModal";
 
 type FormType = "signIn" | "signUp";
 
@@ -65,7 +66,7 @@ export default function AuthForm({ type }: { type: FormType }) {
 		<>
 			<Form {...form}>
 				<form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 md:w-4/5 w-full">
-					<h1 className="text-blue-950 text-center text-3xl font-extrabold">{type === "signIn" ? "Sign In" : "Sign Up"}</h1>
+					<h1 className="text-blue-600 text-center text-3xl font-extrabold">{type === "signIn" ? "Sign In" : "Sign Up"}</h1>
 					{type === "signUp" && (
 						<FormField
 							control={form.control}
@@ -102,7 +103,7 @@ export default function AuthForm({ type }: { type: FormType }) {
 							</FormItem>
 						)}
 					/>
-					<Button type="submit" className="flex gap-7 bg-blue-950 hover:bg-blue-900 w-full" disabled={isLoading}>
+					<Button type="submit" className="flex gap-7 bg-brand hover:bg-blue-500 w-full" disabled={isLoading}>
 						{type === "signIn" ? "Sign In" : "Sign Up"}
 						{isLoading && (
 							<div className="flex flex-col items-center">
@@ -119,6 +120,7 @@ export default function AuthForm({ type }: { type: FormType }) {
 					</div>
 				</form>
 			</Form>
+			{accountId && <OTPModal email={form.getValues("email")} accountId={accountId} />}
 		</>
 	)
 }

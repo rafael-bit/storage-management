@@ -4,7 +4,7 @@ import Image from 'next/image'
 const Layout = ({ children }: { children: React.ReactNode }) => {
 	return (
 		<div className='flex min-h-screen'>
-			<section className='bg-blue-950 p-10 hidden w-1/2 items-center justify-center lg:flex xl:w-2/5'>
+			<section className='bg-blue-700 p-10 hidden w-1/2 items-center justify-center lg:flex xl:w-2/5'>
 				<div className='flex max-h-[800px] max-w-[430px] flex-col justify-center space-y-12'>
 					<div className="flex items-center">
 						<Image src='/favicon.ico' alt='Logo' width={45} height={25} className='h-10 w-12' />
