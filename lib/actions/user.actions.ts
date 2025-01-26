@@ -1,10 +1,11 @@
 "use server";
 
-import { createAdminClient } from "@/lib/appwrite";
+import { createAdminClient, createSessionClient } from "@/lib/appwrite";
 import { appwriteConfig } from "../appwrite/config";
 import { Query, ID } from "node-appwrite";
 import { parseStringify } from "@/lib/utils";
 import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
 const getUserByEmail = async (email: string) => {
 	const { database } = await createAdminClient();
@@ -90,3 +91,30 @@ export const verifySecret = async ({
 		handleError(error, "Failed to verify OTP");
 	}
 };
+
+export const getCurrentUser = async () => {
+	const { database, account } = await createSessionClient();
+	const result = await account.get();
+
+	const user = await database.listDocuments(
+		appwriteConfig.databaseId,
+		appwriteConfig.usersCollectionId,
+		[Query.equal("account", [result.$id])],
+	);
+
+	if (user.total <= 0) return null;
+	return parseStringify(user.documents[0]);
+}
+
+export const signOutUser = async () => {
+	const { account } = await createSessionClient();
+
+	try {
+		await account.deleteSession("current");
+		(await cookies()).delete("appwrite-session")
+	}catch (error) {
+		handleError(error, "Failed to sign out");
+	} finally {
+		redirect("/sign-in")
+	}
+}
