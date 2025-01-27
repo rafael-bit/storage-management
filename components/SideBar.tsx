@@ -17,7 +17,7 @@ export default function SideBar({username, email}: SideBarProps) {
 	const pathname = usePathname()
 
 	return (
-		<aside className='hidden h-screen w-[90px] overflow-auto px-5 py-7 sm:flex flex-col lg:w-[280px] xl:w-[325px]'>
+		<aside className='hidden h-screen w-[90px] overflow-auto px-5 py-7 sm:flex flex-col lg:w-[260px] xl:w-[290px]'>
 			<Link href={'/'}>
 				<div className="hidden lg:flex items-center">
 					<Image src='/favicon.ico' alt='Logo' width={45} height={25} className='h-[50px] w-[54px]' />
@@ -32,9 +32,9 @@ export default function SideBar({username, email}: SideBarProps) {
 					{navItems.map((item) => {
 						return (
 							<Link key={item.href} href={item.href} className='lg:w-full'>
-								<li className={cn('flex gap-4 rounded-xl lg:w-full justify-center lg:justify-start items-center h5 lg:px-[30px] h-[52px] lg:rounded-full', pathname === item.href && 'bg-brand text-white shadow-lg')}>
+								<li className={cn('flex gap-4 rounded-xl lg:w-full justify-center lg:justify-start items-center lg:px-[30px] py-2 lg:py-2.5 lg:rounded-full', pathname === item.href && 'bg-brand text-white shadow-lg')}>
 									<item.icon className='w-6 h-6' />
-									<p className='hidden lg:block'>{item.name}</p>
+									<p className='hidden text-sm lg:block'>{item.name}</p>
 								</li>
 							</Link>
 						)

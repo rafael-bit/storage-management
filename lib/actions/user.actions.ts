@@ -93,18 +93,26 @@ export const verifySecret = async ({
 };
 
 export const getCurrentUser = async () => {
-	const { database, account } = await createSessionClient();
-	const result = await account.get();
+	try {
+		const { database, account } = await createSessionClient();
+		const result = await account.get();
 
-	const user = await database.listDocuments(
-		appwriteConfig.databaseId,
-		appwriteConfig.usersCollectionId,
-		[Query.equal("account", [result.$id])],
-	);
+		const user = await database.listDocuments(
+			appwriteConfig.databaseId,
+			appwriteConfig.usersCollectionId,
+			[Query.equal("account", [result.$id])],
+		);
 
-	if (user.total <= 0) return null;
-	return parseStringify(user.documents[0]);
-}
+		if (user.total <= 0) {
+			return null;
+		}
+
+		return parseStringify(user.documents[0]);
+	} catch (error) {
+		console.error("Erro ao buscar o usuário:", error);
+		return null;
+	}
+};
 
 export const signOutUser = async () => {
 	const { account } = await createSessionClient();
