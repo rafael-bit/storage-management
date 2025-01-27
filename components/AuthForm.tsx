@@ -16,7 +16,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { useState } from "react";
 import Link from "next/link";
-import { createAccount } from "@/lib/actions/user.actions";
+import { createAccount, signInUser } from "@/lib/actions/user.actions";
 import toast from "react-hot-toast";
 import OTPModal from "./OTPModal";
 
@@ -50,9 +50,12 @@ export default function AuthForm({ type }: { type: FormType }) {
 		setIsLoading(true)
 
 		try {
-			const user = await createAccount({
+			const user =
+				type === "signUp" ? await createAccount({
 				username: values.username || "",
 				email: values.email,
+			}) : await signInUser({
+				email: values.email
 			})
 
 			setAccountId(user.accountId)
