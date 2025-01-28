@@ -37,10 +37,10 @@ export const sendEmailOTP = async ({ email }: { email: string }) => {
 };
 
 export const createAccount = async ({
-	fullName,
+	username,
 	email,
 }: {
-	fullName: string;
+	username: string;
 	email: string;
 }) => {
 	const existingUser = await getUserByEmail(email);
@@ -56,7 +56,7 @@ export const createAccount = async ({
 			appwriteConfig.usersCollectionId,
 			ID.unique(),
 			{
-				fullName,
+				username,
 				email,
 				avatar: "",
 				accountId,
@@ -95,7 +95,6 @@ export const verifySecret = async ({
 export const getCurrentUser = async () => {
 	try {
 		const { database, account } = await createSessionClient();
-
 		const result = await account.get();
 
 		const user = await database.listDocuments(
@@ -108,9 +107,11 @@ export const getCurrentUser = async () => {
 
 		return parseStringify(user.documents[0]);
 	} catch (error) {
-		console.log(error);
+		console.error("Failed to fetch current user:", error);
+		return null;
 	}
 };
+
 
 export const signOutUser = async () => {
 	const { account } = await createSessionClient();

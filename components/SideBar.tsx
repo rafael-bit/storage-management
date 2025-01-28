@@ -32,7 +32,7 @@ export default function SideBar({username, email}: SideBarProps) {
 					{navItems.map((item) => {
 						return (
 							<Link key={item.href} href={item.href} className='lg:w-full'>
-								<li className={cn('flex gap-4 rounded-xl lg:w-full justify-center lg:justify-start items-center lg:px-[30px] py-2 lg:py-2.5 lg:rounded-full', pathname === item.href && 'bg-brand text-white shadow-lg')}>
+								<li className={cn('flex gap-4 rounded-xl lg:w-full justify-center lg:justify-start items-center lg:px-[30px] py-2 lg:py-2.5 lg:rounded-full hover:bg-brand/10', pathname === item.href && 'bg-brand text-white shadow-lg hover:bg-brand')}>
 									<item.icon className='w-6 h-6' />
 									<p className='hidden text-sm lg:block'>{item.name}</p>
 								</li>
