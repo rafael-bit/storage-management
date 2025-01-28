@@ -22,11 +22,13 @@ import FileUploader from './FileUploader';
 import { signOutUser } from '@/lib/actions/user.actions';
 
 interface MobileNavegationProps {
+	$id: string
+	accountId: string
 	username: string
 	email: string
 }
 
-export default function MobileNavegation({ username, email }: MobileNavegationProps) {
+export default function MobileNavegation({ $id:ownerId, accountId, username, email }: MobileNavegationProps) {
 	const [open, setOpen] = useState(false)
 	const pathname = usePathname()
 
@@ -69,7 +71,7 @@ export default function MobileNavegation({ username, email }: MobileNavegationPr
 						</nav>
 					</SheetFooter>
 					<div className="flex flex-col justify-between gap-5 py-5">
-						<FileUploader />
+						<FileUploader ownerId={ownerId} accountId={accountId} />
 						<Button type="submit" className='flex justify-center items-center rounded-full bg-brand/10 text-brand shadow-none transition-all hover:bg-brand/20' onClick={signOutUser}><MdLogout className='w-6 h-6' /></Button>
 					</div>
 				</SheetContent>
