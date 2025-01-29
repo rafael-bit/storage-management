@@ -1,4 +1,5 @@
 import { MdSpaceDashboard, MdImage, MdOutlineDocumentScanner, MdPermMedia } from "react-icons/md";
+import { FiEdit, FiInfo, FiShare, FiDownload, FiTrash } from "react-icons/fi";
 import { AiOutlineDotChart } from "react-icons/ai";
 
 export const navItems = [
@@ -53,6 +54,34 @@ export const sortTypes = [
 	{
 		label: "Size (Lowest)",
 		value: "size-asc",
+	},
+];
+
+export const actionsDropdownItems = [
+	{
+		label: "Rename",
+		icon: FiEdit,
+    value: "rename",
+	},
+	{
+		label: "Details",
+		icon: FiInfo,
+    value: "details",
+	},
+	{
+		label: "Share",
+		icon: FiShare,
+    value: "share",
+	},
+	{
+		label: "Download",
+		icon: FiDownload,
+    value: "download",
+	},
+	{
+		label: "Delete",
+		icon: FiTrash,
+    value: "delete",
 	},
 ];
 
