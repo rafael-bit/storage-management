@@ -1,5 +1,3 @@
-import React from "react";
-import Image from "next/image";
 import { cn, getFileIcon } from "@/lib/utils";
 import { IconType } from "react-icons";
 import { MdInsertDriveFile } from "react-icons/md";
