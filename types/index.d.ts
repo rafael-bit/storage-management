@@ -49,12 +49,12 @@ declare interface FileUploaderProps {
 declare interface MobileNavigationProps {
 	ownerId: string;
 	accountId: string;
-	fullName: string;
+	username: string;
 	avatar: string;
 	email: string;
 }
 declare interface SidebarProps {
-	fullName: string;
+	username: string;
 	avatar: string;
 	email: string;
 }
