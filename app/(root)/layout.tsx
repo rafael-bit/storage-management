@@ -24,6 +24,7 @@ export default async function Layout({ children }: { children: React.ReactNode }
 			</main>
 		);
 	} catch (error) {
+		console.log(error);
 		return redirect("/sign-in");
 	}
 }

@@ -22,6 +22,8 @@ import OTPModal from "./OTPModal";
 
 type FormType = "signIn" | "signUp";
 
+export const dynamic = "force-dynamic";
+
 const authSchema = (formType: FormType) => {
 	return z.object({
 		email: z.string().email(),
@@ -34,7 +36,7 @@ const authSchema = (formType: FormType) => {
 
 export default function AuthForm({ type }: { type: FormType }) {
 	const [isLoading, setIsLoading] = useState(false)
-	const [errorMessage, setErrorMessage] = useState('')
+	const [errorMessage] = useState('')
 	const [accountId, setAccountId] = useState(null)
 
 	const formSchema = authSchema(type)

@@ -3,7 +3,7 @@
 import React, { useCallback, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { Button } from './ui/button';
-import { cn, convertFileToUrl, getFileType } from '@/lib/utils';
+import { cn,  getFileType } from '@/lib/utils';
 import { MdClose, MdCloudUpload } from "react-icons/md";
 import Thumbnail from './Thumbnail';
 import { MAX_FILE_SIZE } from '@/constants';
@@ -44,9 +44,9 @@ const FileUploader: React.FC<FileUploaderProps> = ({ ownerId, accountId, classNa
 
 		await Promise.all(uploadPromises)
 		
-	}, [ownerId, accountId, path]);
+	}, [ownerId, accountId, path, toast]);
 
-	const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
+	const { getRootProps, getInputProps} = useDropzone({ onDrop });
 
 	const handleRemoveFile = (e: React.MouseEvent<SVGElement>, fileName: string) => {
 		e.stopPropagation();
@@ -72,7 +72,7 @@ const FileUploader: React.FC<FileUploaderProps> = ({ ownerId, accountId, classNa
 								className="flex items-center justify-between gap-3 rounded-xl bg-gray-100 p-3 shadow"
 							>
 								<div className="flex items-center gap-3">
-									<Thumbnail type={type} extension={extension} url={convertFileToUrl(file)} />
+									<Thumbnail type={type} extension={extension} />
 									<div className="mb-2 line-clamp-1 max-w-[300px] text-sm">
 										{file.name}
 										<div className="relative w-full h-2 bg-gray-200 rounded">
