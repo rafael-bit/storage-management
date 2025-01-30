@@ -4,7 +4,7 @@ import FormattedDateTime from "@/components/FormattedDateTime";
 import { convertFileSize, formatDateTime } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
+import { MdGroupRemove } from "react-icons/md";
 
 interface ActionsModalContentProps {
 	file: Models.Document;
@@ -75,15 +75,9 @@ export const ShareInput = ({ file, onInputChange, onRemove }: ActionsModalConten
 								<p className="text-sm">{email}</p>
 								<Button
 									onClick={() => onRemove(email)}
-									className="rounded-full bg-transparent text-zinc-300 shadow-none hover:bg-transparent"
+									className="rounded-full bg-transparent text-zinc-800 hover:text-red-500 transition-all duration-300 shadow-none hover:bg-transparent"
 								>
-									<Image
-										src="/assets/icons/remove.svg"
-										alt="Remove"
-										width={24}
-										height={24}
-										className="aspect-square rounded-full"
-									/>
+									<MdGroupRemove />
 								</Button>
 							</li>
 						))}
