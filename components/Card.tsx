@@ -7,7 +7,7 @@ import FormattedDateTime from './FormattedDateTime'
 
 export default function Card({ file }: { file: Models.Document }) {
 	return (
-		<Link href={file.url} target='_blank' className='flex cursor-pointer flex-col gap-6 rounded-[15px] bg-white p-5 shadow-sm transition-all hover:shadow-drop-3'>
+		<Link href={file.url} target='_blank' className='flex cursor-pointer flex-col gap-6 rounded-[15px] bg-white p-5 shadow-sm transition-all'>
 			<div className="flex justify-between">
 				<Thumbnail type={file.type} extension={file.extension} className='size-14' imageClassName='size-9' />
 				<div className="flex flex-col items-end justify-between">

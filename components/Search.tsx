@@ -50,7 +50,7 @@ export default function Search() {
 
 	return (
 		<div className='relative w-full md:max-w-[480px]'>
-			<div className="flex h-[50px] items-center gap-3 rounded-full px-4 shadow-drop-3 border-2">
+			<div className="flex h-[50px] items-center gap-3 rounded-full px-4 border-2">
 				<FaSearch />
 				<Input
 					value={query}
