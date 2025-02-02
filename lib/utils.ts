@@ -1,5 +1,6 @@
-import { FaFilePdf, FaFileWord, FaFileCsv, FaFileAlt, FaFileExcel } from "react-icons/fa";
-import { MdImage, MdVideoLibrary, MdAudiotrack, MdInsertDriveFile } from "react-icons/md";
+import { FaFilePdf, FaFileWord, FaFileCsv, FaFileAlt, FaFileExcel, FaFileVideo, FaFileInvoice } from "react-icons/fa";
+import { MdImage, MdVideoLibrary, MdAudiotrack, MdInsertDriveFile, MdPermMedia } from "react-icons/md";
+import { IoIosDocument } from "react-icons/io";
 import { IconType } from "react-icons";
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
@@ -9,7 +10,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export const parseStringify = (value: unknown) => {
-  return  JSON.parse(JSON.stringify(value))
+  return JSON.parse(JSON.stringify(value))
 }
 
 export const convertFileToUrl = (file: File) => URL.createObjectURL(file);
@@ -202,4 +203,40 @@ export const getFileTypesParams = (type: string) => {
     default:
       return ["document"];
   }
+};
+
+export const getUsageSummary = (totalSpace: any) => {
+  return [
+    {
+      title: "Documents",
+      size: totalSpace.document.size,
+      latestDate: totalSpace.document.latestDate,
+      icon: IoIosDocument,
+      url: "/documents",
+    },
+    {
+      title: "Images",
+      size: totalSpace.image.size,
+      latestDate: totalSpace.image.latestDate,
+      icon: MdPermMedia,
+      url: "/images",
+    },
+    {
+      title: "Media",
+      size: totalSpace.video.size + totalSpace.audio.size,
+      latestDate:
+        totalSpace.video.latestDate > totalSpace.audio.latestDate
+          ? totalSpace.video.latestDate
+          : totalSpace.audio.latestDate,
+      icon: FaFileVideo,
+      url: "/media",
+    },
+    {
+      title: "Others",
+      size: totalSpace.other.size,
+      latestDate: totalSpace.other.latestDate,
+      icon: FaFileInvoice,
+      url: "/others",
+    },
+  ];
 };

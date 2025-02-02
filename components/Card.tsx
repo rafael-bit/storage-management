@@ -20,7 +20,7 @@ export default function Card({ file }: { file: Models.Document }) {
 				<p className="line-clamp-1">{file.name}</p>
 				<FormattedDateTime
 					date={file.$createdAt}
-					className="text-sm text-light-100"
+					className="text-sm text-zinc-800"
 				/>
 				<p className="text-sm caption line-clamp-1 text-zinc-600">
 					By: {file.owner.username}

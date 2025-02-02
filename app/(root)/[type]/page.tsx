@@ -1,7 +1,7 @@
 import Card from "@/components/Card";
 import Sort from "@/components/Sort"
 import { getFiles } from "@/lib/actions/file.actions"
-import { getFileTypesParams } from "@/lib/utils";
+import { convertFileSize, getFileTypesParams } from "@/lib/utils";
 import { Models } from "node-appwrite"
 
 export default async function Page({ searchParams, params }: SearchParamProps) {
@@ -16,7 +16,7 @@ export default async function Page({ searchParams, params }: SearchParamProps) {
 			<div className="w-full">
 				<h1 className="capitalize text-4xl font-bold">{type}</h1>
 				<div className="flex mt-2 flex-col justify-between sm:flex-row sm:items-center">
-					<p className="text-sm text-zinc-800">Total: <span className="font-bold">0MB</span></p>
+					<p className="text-sm text-zinc-800">Total: <span className="font-bold">0MB / 2GB</span></p>
 					<div className="mt-5 flex items-center sm:mt-0 sm:gap-3">
 						<p className="hidden sm:block text-zinc-700">Sort by:</p>
 						<Sort />
