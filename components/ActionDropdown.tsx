@@ -123,7 +123,7 @@ const ActionDropdown = ({ file }: { file: Models.Document }) => {
 				</DialogHeader>
 				{["rename", "delete", "share"].includes(value) && (
 					<DialogFooter className="flex flex-col gap-3 md:flex-row">
-						<Button onClick={closeAllModals} className="p-3 flex-1 rounded-full bg-white text-light-100 hover:bg-transparent">
+						<Button onClick={closeAllModals} className="p-3 flex-1 rounded-full bg-white text-zinc-800 hover:bg-transparent">
 							Cancel
 						</Button>
 						<Button onClick={handleAction} className="!mx-0 h-[52px] w-full flex-1">

@@ -13,7 +13,7 @@ interface ActionsModalContentProps {
 }
 
 const ImageThumbnail = ({ file }: { file: Models.Document }) => (
-	<div className="mb-1 flex items-center gap-3 rounded-xl border border-light-200/40 bg-light-400/50 p-3">
+	<div className="mb-1 flex items-center gap-3 rounded-xl border border-zinc-700/40 bg-zinc-600/50 p-3">
 		<Thumbnail type={file.type} extension={file.extension} />
 		<div className="flex flex-col">
 			<p className="text-sm text-zinc-800 mb-1">{file.name}</p>
