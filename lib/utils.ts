@@ -1,9 +1,9 @@
-import { FaFilePdf, FaFileWord, FaFileCsv, FaFileAlt, FaFileExcel, FaFileVideo, FaFileInvoice } from "react-icons/fa";
-import { MdImage, MdVideoLibrary, MdAudiotrack, MdInsertDriveFile, MdPermMedia } from "react-icons/md";
-import { IoIosDocument } from "react-icons/io";
+import { FaFilePdf, FaFileWord, FaFileCsv, FaFileAlt, FaFileExcel } from "react-icons/fa";
+import { MdImage, MdVideoLibrary, MdAudiotrack, MdInsertDriveFile, MdOutlineDocumentScanner } from "react-icons/md";
 import { IconType } from "react-icons";
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
+import { AiOutlineDotChart } from "react-icons/ai";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -211,14 +211,14 @@ export const getUsageSummary = (totalSpace: any) => {
       title: "Documents",
       size: totalSpace.document.size,
       latestDate: totalSpace.document.latestDate,
-      icon: IoIosDocument,
+      icon: MdOutlineDocumentScanner,
       url: "/documents",
     },
     {
       title: "Images",
       size: totalSpace.image.size,
       latestDate: totalSpace.image.latestDate,
-      icon: MdPermMedia,
+      icon: MdImage,
       url: "/images",
     },
     {
@@ -228,14 +228,14 @@ export const getUsageSummary = (totalSpace: any) => {
         totalSpace.video.latestDate > totalSpace.audio.latestDate
           ? totalSpace.video.latestDate
           : totalSpace.audio.latestDate,
-      icon: FaFileVideo,
+      icon: MdVideoLibrary,
       url: "/media",
     },
     {
       title: "Others",
       size: totalSpace.other.size,
       latestDate: totalSpace.other.latestDate,
-      icon: FaFileInvoice,
+      icon: AiOutlineDotChart,
       url: "/others",
     },
   ];

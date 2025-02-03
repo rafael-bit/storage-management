@@ -26,20 +26,21 @@ export default async function Home() {
             <Link
               href={summary.url}
               key={summary.title}
-              className="relative mt-6 rounded-[20px] bg-white p-5 transition-all hover:scale-105"
+              className="rounded-[20px] bg-white p-5 transition-all hover:scale-105"
             >
               <div className="space-y-4">
-                <div className="flex justify-between gap-3">
-                  <summary.icon className="absolute -left-3 top-[-25px] z-10 w-[190px] object-contain" />
-                  <h4 className="text-lg relative z-20 w-full text-right">
+                <div className="flex justify-between items-center gap-3">
+                  <div className="p-3 bg-brand/10 text-zinc-600 rounded-full">
+                    <summary.icon size={20} />
+                  </div>
+                  <h4 className="relative z-10 w-full text-right">
                     {convertFileSize(summary.size) || 0}
                   </h4>
                 </div>
 
-                <h5 className="text-lg relative z-20 text-center">{summary.title}</h5>
+                <h5 className="relative z-20 text-left text-sm">{summary.title}</h5>
                 <FormattedDateTime
                   date={summary.latestDate}
-                  className="text-center"
                 />
               </div>
             </Link>
@@ -65,7 +66,7 @@ export default async function Home() {
 
                 <div className="flex w-full flex-col xl:flex-row xl:justify-between">
                   <div className="flex flex-col gap-1">
-                    <p className="line-clamp-1 w-full text-light-100 sm:max-w-[200px] lg:max-w-[250px]">{file.name}</p>
+                    <p className="text-sm line-clamp-1 w-full sm:max-w-[200px] lg:max-w-[250px]">{file.name}</p>
                     <FormattedDateTime
                       date={file.$createdAt}
                     />
@@ -76,7 +77,7 @@ export default async function Home() {
             ))}
           </ul>
         ) : (
-            <p className="mt-10 text-center text-light-200">No files uploaded</p>
+          <p className="mt-10 text-center text-light-200">No files uploaded</p>
         )}
       </section>
     </div>

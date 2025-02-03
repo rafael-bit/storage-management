@@ -21,7 +21,7 @@ export default function Thumbnail({
 	return (
 		<figure
 			className={cn(
-				"flex justify-center p3 items-center overflow-hidden rounded-full bg-brand/10",
+				"flex justify-center p-3 items-center overflow-hidden rounded-full bg-brand/10",
 				className,
 			)}
 		>

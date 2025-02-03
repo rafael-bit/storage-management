@@ -8,7 +8,7 @@ export const FormattedDateTime = ({
 	className?: string;
 }) => {
 	return (
-		<p className={cn("body-1 text-zinc-800", className)}>
+		<p className={cn("text-sm text-zinc-800", className)}>
 			{formatDateTime(date)}
 		</p>
 	);
