@@ -5,6 +5,19 @@ import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
 import { AiOutlineDotChart } from "react-icons/ai";
 
+type FileCategory = {
+  size: number;
+  latestDate: string;
+};
+
+type TotalSpace = {
+  document: FileCategory;
+  image: FileCategory;
+  video: FileCategory;
+  audio: FileCategory;
+  other: FileCategory;
+};
+
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
@@ -205,7 +218,7 @@ export const getFileTypesParams = (type: string) => {
   }
 };
 
-export const getUsageSummary = (totalSpace: any) => {
+export const getUsageSummary = (totalSpace: TotalSpace) => {
   return [
     {
       title: "Documents",

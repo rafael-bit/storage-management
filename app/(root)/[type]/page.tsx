@@ -1,7 +1,7 @@
 import Card from "@/components/Card";
 import Sort from "@/components/Sort"
 import { getFiles } from "@/lib/actions/file.actions"
-import { convertFileSize, getFileTypesParams } from "@/lib/utils";
+import { getFileTypesParams } from "@/lib/utils";
 import { Models } from "node-appwrite"
 
 export default async function Page({ searchParams, params }: SearchParamProps) {
