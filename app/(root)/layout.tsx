@@ -17,7 +17,7 @@ export default async function Layout({ children }: { children: React.ReactNode }
 				<section className="h-full flex flex-1 flex-col">
 					<MobileNavegation {...currentUser} />
 					<Header userId={currentUser.$id} accountId={currentUser.accountId} />
-					<div className="h-full flex-1 overflow-auto px-5 py-7 sm:mr-5 sm:rounded-[15px] md:mb-7 md:px-9 md:py-10 bg-gray-50">
+					<div className="h-full flex-1 overflow-auto px-5 py-7 sm:mr-5 sm:rounded-[15px] md:mb-7 md:px-9 md:py-10 bg-brand/5">
 						{children}
 					</div>
 				</section>
