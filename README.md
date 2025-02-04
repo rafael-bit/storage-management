@@ -43,7 +43,6 @@ Open this address in your browser: [storage Management](http://localhost:3000/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Shadcn](https://ui.shadcn.com/)
 - [Zod](https://zod.dev/)
-- [Radix UI](https://www.radix-ui.com/)
 - [Appwrite](https://appwrite.io/)
 
 # 🚩 Bugs
