@@ -41,7 +41,7 @@ Open this address in your browser: [storage Management](http://localhost:3000/)
 
 - [Next.js](https://nextjs.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
-- [React Hook Form](https://react-hook-form.com/)
+- [Shadcn](https://ui.shadcn.com/)
 - [Zod](https://zod.dev/)
 - [Radix UI](https://www.radix-ui.com/)
 - [Appwrite](https://appwrite.io/)
