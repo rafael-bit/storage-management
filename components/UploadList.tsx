@@ -14,7 +14,7 @@ export default function UploadList({ files, onRemove }: UploadListProps) {
 	return (
 		<ul className="fixed bottom-10 right-10 z-40 w-full max-w-[480px] flex-col gap-3 rounded-[15px] bg-white p-5 shadow">
 			<h3 className="text-lg font-bold">Uploading</h3>
-			{files.map(({ file, progress, status }) => (
+			{files.map(({ file, progress }) => (
 				<li key={file.name} className="flex items-center justify-between gap-3 rounded-xl bg-gray-100 p-3 shadow">
 					<div className="flex items-center gap-3">
 						<Thumbnail type={file.type} extension={file.name.split(".").pop() || ""} />

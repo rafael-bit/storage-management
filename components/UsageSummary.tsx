@@ -3,7 +3,23 @@ import Chart from "./Chart";
 import Link from "next/link";
 import FormattedDateTime from "./FormattedDateTime";
 
-export default function UsageSummary({ totalSpace }: { totalSpace: any }) {
+type FileCategory = {
+	size: number;
+	latestDate: string;
+};
+
+type TotalSpace = {
+	document: FileCategory;
+	image: FileCategory;
+	video: FileCategory;
+	audio: FileCategory;
+	other: FileCategory;
+	used: number;
+
+};
+
+
+export default function UsageSummary({ totalSpace }: { totalSpace: TotalSpace }) {
 	const usageSummary = getUsageSummary(totalSpace);
 
 	return (
